@@ -1,5 +1,5 @@
 ; simple moran birth death process
-
+; comment for testing github- workflow
 globals [
   ; N_tot total number individuals
   ; S number species

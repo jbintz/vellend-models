@@ -1,5 +1,5 @@
 ; simple moran birth death process
-; comment for testing github workflow
+; comment for testing github-rstudio workflow
 globals [
   ; N_tot total number individuals
   ; S number species
