@@ -1,3 +1,4 @@
+; simple moran birth death process
 globals [
   ; N_tot total number individuals
   ; S number species
