@@ -5,6 +5,7 @@ globals [
   ; S number species
   N
   p
+  prop-vec
 ]
 
 turtles-own [
@@ -14,6 +15,7 @@ turtles-own [
 to setup
   ca
   set p n-values S [ 1 / S ]
+  set prop-vec ( list (1 / S) )
   set N map [ i -> round ( N_tot * i ) ] p
   (
     foreach N n-values S [ i -> i + 1 ] [
@@ -28,11 +30,14 @@ to setup
 end
 
 to go
-  repeat N_tot [
-    ask one-of turtles [ die ]
-    ask one-of turtles [ hatch 1 [ setxy random-xcor random-ycor ] ]
+  repeat 50 [
+    repeat N_tot [
+      ask one-of turtles [ die ]
+      ask one-of turtles [ hatch 1 [ setxy random-xcor random-ycor ] ]
+    ]
+    set prop-vec lput (count turtles with [ spec-num = 1 ] / count turtles) prop-vec
+    tick
   ]
-  tick
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
@@ -116,7 +121,7 @@ BUTTON
 43
 NIL
 go
-T
+NIL
 1
 T
 OBSERVER

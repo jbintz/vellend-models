@@ -8,13 +8,11 @@ to setup
   set props [ ]
   ls:create-models 20 "moran.nlogo"
   ls:ask ls:models [ setup ]
-  set props [ (count turtles with [ spec-num = 1 ]) / count turtles ] ls:of ls:models
-  reset-ticks
 end
 
 to go
   ls:ask ls:models [ go ]
-  set props [ (count turtles with [ spec-num = 1 ]) / count turtles ] ls:of ls:models
+  set props [ prop-vec ] ls:of ls:models
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
