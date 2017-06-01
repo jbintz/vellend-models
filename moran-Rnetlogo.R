@@ -12,3 +12,12 @@ NLCommand("setup")
 NLCommand("go")
 props_list <- NLReport("props")
 NLQuit()
+
+props_df <- props_list %>%
+  map(enframe, name = "year", value = "prop") %>% 
+  enframe(name = "sim", value = "value") %>% 
+  unnest(value) %>% 
+  mutate(sim = as.factor(sim))
+
+props_df %>% ggplot() +
+  geom_path(aes(year, prop, col = sim))
